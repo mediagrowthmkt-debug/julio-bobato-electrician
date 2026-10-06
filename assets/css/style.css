@@ -107,7 +107,7 @@ nav.main .sub a:hover{background:rgba(255,255,255,.05)}
 /* ---------- full-bleed hero (home) ---------- */
 .hero-bg{position:relative;color:#fff;overflow:hidden;
   background:linear-gradient(95deg,rgba(9,18,33,.95) 0%,rgba(13,27,46,.86) 40%,rgba(13,27,46,.30) 100%),
-  url('../img/hero-real-chandelier.jpg') right center/cover no-repeat}
+  url('../img/hero-real-chandelier.webp') right center/cover no-repeat}
 .hero-bg .wrap{padding:100px 22px 110px}
 .hero-bg .inner{max-width:640px}
 .hero-bg h1{color:#fff;font-size:clamp(2.3rem,5.4vw,3.85rem);text-transform:uppercase}
@@ -117,7 +117,7 @@ nav.main .sub a:hover{background:rgba(255,255,255,.05)}
 .hero-bg .hero-badges{display:flex;gap:22px;flex-wrap:wrap;color:#dbe4ee;font-weight:600;font-size:.96rem}
 .hero-bg .hero-badges span{display:flex;align-items:center;gap:8px}
 @media(max-width:760px){
-  .hero-bg{background:linear-gradient(180deg,rgba(9,18,33,.86),rgba(13,27,46,.94)),url('../img/hero-real-chandelier.jpg') 78% center/cover no-repeat}
+  .hero-bg{background:linear-gradient(180deg,rgba(9,18,33,.86),rgba(13,27,46,.94)),url('../img/hero-real-chandelier.webp') 78% center/cover no-repeat}
   .hero-bg .wrap{padding:64px 22px 72px}
 }
 

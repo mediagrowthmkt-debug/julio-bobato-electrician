@@ -26,7 +26,7 @@ GSC_VERIFICATION = ""
 # (ex.: "https://mediagrowth.com.br/julio-contact/contact.php") e liberar a origem em ALLOWED_ORIGINS no PHP.
 FORM_ENDPOINT = "https://mediagrowth.com.br/julio-contact/contact.php"
 
-ASSET_V = "20261006e"   # trocar a cada mudanca de CSS/JS (cache-busting)
+ASSET_V = "20261006f"   # trocar a cada mudanca de CSS/JS (cache-busting)
 FEATURED = ["panel-upgrades", "ev-charger-installation", "commercial-electrical"]
 
 # ---------------------------------------------------------------- data: SERVICES
@@ -79,9 +79,9 @@ SERVICES = [
  dict(slug="recessed-lighting", nav="Recessed Lighting", img="service-lighting.jpg",
    name="Recessed Lighting Installation",
    service_type="Recessed Lighting Installation",
-   title="Recessed Lighting Installation in Danvers, MA | Julio Bobato",
+   title="Recessed Lighting Installation Danvers, MA | Julio Bobato",
    desc="Licensed electrician for recessed and can light installation in Danvers and the North Shore. LED retrofits, existing ceilings, clean work. Free estimate.",
-   h1a="Recessed Lighting Installation in", h1b="Danvers, MA",
+   h1a="Recessed Lighting Installation<br>", h1b="Danvers, MA",
    intro="Bright, even light without a single fixture hanging in the way. We plan and install recessed and can lights in kitchens, living rooms, basements and bedrooms across Danvers and the North Shore, in new and existing ceilings, with the right dimmer for every room.",
    h2_included="Recessed and Can Light Installation by a Licensed Massachusetts Electrician",
    included=["Recessed and can lights in new and existing ceilings","Canless LED wafer lights for tight ceiling spaces",
@@ -123,7 +123,7 @@ SERVICES = [
    service_type="Landscape Lighting Installation",
    title="Landscape Lighting Installation Danvers, MA | Julio Bobato",
    desc="Licensed electrician for landscape and outdoor lighting in Danvers and the North Shore. Path lights, uplighting, patio and security lights. Free estimate.",
-   h1a="Landscape and Outdoor Lighting Installation in", h1b="Danvers, MA",
+   h1a="Landscape Lighting Installation<br>", h1b="Danvers, MA",
    intro="New England nights start early in the fall. We install landscape and outdoor lighting that makes your home safer to come home to, easy to find and great looking after dark, from path and patio lights to uplighting and security floodlights.",
    h2_included="Outdoor Lighting Installed by a Licensed Electrician, Not Just a Landscaper",
    included=["Landscape &amp; garden uplighting","Path, step &amp; walkway lights",
@@ -766,6 +766,26 @@ made = [build_home()]
 for s in SERVICES: made.append(build_service(s))
 for c in CITIES: made.append(build_city(c))
 build_thankyou()   # fora do sitemap (noindex)
+
+# WebP: gera .webp ao lado de cada jpg/png e serve WebP nas <img> e no CSS (og:image/schema seguem em jpg)
+import re as _re, subprocess as _sp
+IMG_DIR = os.path.join(BASE,"assets","img")
+for f in os.listdir(IMG_DIR):
+    if not _re.search(r"\.(jpe?g|png)$", f, _re.I) or f == "favicon.png": continue
+    src = os.path.join(IMG_DIR,f); dst = _re.sub(r"\.(jpe?g|png)$", ".webp", src, flags=_re.I)
+    if not os.path.exists(dst) or os.path.getmtime(dst) < os.path.getmtime(src):
+        _sp.run(["cwebp","-quiet","-q","80","-m","6","-mt",src,"-o",dst], check=True)
+def _to_webp(m):
+    w = _re.sub(r"\.(jpe?g|png)$", ".webp", m.group(2), flags=_re.I)
+    return m.group(1) + (w if os.path.exists(os.path.join(BASE,w)) else m.group(2)) + m.group(3)
+for f in os.listdir(BASE):
+    if f.endswith(".html"):
+        fp = os.path.join(BASE,f); h = open(fp,encoding="utf-8").read()
+        h2 = _re.sub(r'(<img\b[^>]*?\bsrc=")(assets/img/[^"]+\.(?:jpe?g|png))(")', _to_webp, h)
+        if h2 != h: open(fp,"w",encoding="utf-8").write(h2)
+_css = os.path.join(BASE,"assets","css","style.css"); _c = open(_css,encoding="utf-8").read()
+_c2 = _re.sub(r"(url\('\.\./img/)([^']+)\.(?:jpe?g|png)('\))", r"\1\2.webp\3", _c)
+if _c2 != _c: open(_css,"w",encoding="utf-8").write(_c2)
 
 # titulos <= 60 caracteres (entidades contam 1)
 import html as _h
