@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /contact.php
 
-Sitemap: https://juliobobato.com/sitemap.xml
+Sitemap: https://juliobobatoelectrician.com/sitemap.xml

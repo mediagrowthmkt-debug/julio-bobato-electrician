@@ -8,7 +8,7 @@ schema (Electrician/Service/BreadcrumbList/FAQPage), links internos, breadcrumb.
 """
 import os
 BASE = os.path.dirname(os.path.abspath(__file__))
-SITE = "https://juliobobato.com"
+SITE = "https://juliobobatoelectrician.com"
 PH_D = "(857) 249-4451"
 PH_T = "+18572494451"
 EMAIL = "contact@juliobobato.com"
