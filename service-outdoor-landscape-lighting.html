@@ -41,11 +41,11 @@
     <a href="index.html#why">Why Us</a>
     <a href="index.html#areas">Service Areas</a>
     <a href="index.html#faq">FAQ</a>
-    <a href="index.html#contact">Contact</a>
+    <a href="#contact">Contact</a>
   </nav>
   <div class="header-cta">
     <a class="phone-link" href="tel:+18572494451">&#9743; <b>(857) 249-4451</b></a>
-    <a class="btn btn-primary" href="index.html#contact">Free Estimate</a>
+    <a class="btn btn-primary" href="#contact">Free Estimate</a>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </div></header>
@@ -152,9 +152,44 @@
 <section class="cta-band"><div class="wrap">
   <h2>Need Outdoor &amp; Landscape Lighting on the North Shore?</h2><p>Get a free, no-pressure estimate today. Licensed, insured and always on time.</p>
   <div class="cta-row">
-    <a class="btn btn-primary" href="index.html#contact">Get My Free Estimate</a>
+    <a class="btn btn-primary" href="#contact">Get My Free Estimate</a>
     <a class="btn btn-ghost" href="tel:+18572494451">&#9743; Call (857) 249-4451</a>
   </div></div></section>
+<section id="contact"><div class="wrap"><div class="contact">
+  <div><p class="eyebrow">Get In Touch</p><h2>Request Your Free Estimate</h2>
+    <p class="lead" style="margin-bottom:28px">Every estimate is 100% free with no obligation. Call, text or fill out the form and we'll get right back to you with a clear plan.</p>
+    <div class="contact-info">
+      <div class="ci-item"><div class="ico">&#9743;</div><div><b>Phone</b><span><a href="tel:+18572494451">(857) 249-4451</a></span></div></div>
+      <div class="ci-item"><div class="ico">&#9993;</div><div><b>Email</b><span><a href="mailto:contact@juliobobato.com">contact@juliobobato.com</a></span></div></div>
+      <div class="ci-item"><div class="ico">&#128205;</div><div><b>Service Area</b><span>Danvers &amp; the North Shore, Essex County, MA</span></div></div>
+      <div class="ci-item"><div class="ico">&#128337;</div><div><b>Hours</b><span>Mon to Sat, 7:00 AM to 7:00 PM · Emergency service available</span></div></div>
+    </div></div>
+  <form class="form" id="estimate-form" action="https://mediagrowth.com.br/julio-contact/contact.php" method="post" data-phone="(857) 249-4451" data-tel="+18572494451" data-email="contact@juliobobato.com">
+    <h3>Get Your <span class="hl">FREE</span> Estimate</h3>
+    <p style="color:var(--muted);margin-bottom:18px;font-size:.95rem">Free and no obligation. Tell us about the job and we'll get right back to you.</p>
+    <div class="fld"><label for="name">Full Name</label><input id="name" name="name" required maxlength="80" autocomplete="name" placeholder="Your name"></div>
+    <div class="fld"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required maxlength="25" autocomplete="tel" placeholder="Best number to reach you"></div>
+    <div class="fld"><label for="email">Email</label><input id="email" name="email" type="email" maxlength="120" autocomplete="email" placeholder="you@email.com"></div>
+    <div class="fld"><label for="service">Service Needed</label><select id="service" name="service">
+      <option value="Panel &amp; Service Upgrades" data-slug="panel-upgrades">Panel &amp; Service Upgrades</option>
+      <option value="EV Charger Installation" data-slug="ev-charger-installation">EV Charger Installation</option>
+      <option value="Commercial Electrical" data-slug="commercial-electrical">Commercial Electrical</option>
+      <option value="Lighting &amp; Fixtures" data-slug="lighting-fixtures">Lighting &amp; Fixtures</option>
+      <option value="Recessed Lighting" data-slug="recessed-lighting">Recessed Lighting</option>
+      <option selected value="Outdoor &amp; Landscape Lighting" data-slug="outdoor-landscape-lighting">Outdoor &amp; Landscape Lighting</option>
+      <option value="Repairs &amp; Troubleshooting" data-slug="electrical-repairs">Repairs &amp; Troubleshooting</option>
+      <option value="Other">Other</option>
+    </select></div>
+    <div class="fld"><label for="city">Town</label><input id="city" name="city" maxlength="60" list="towns" autocomplete="address-level2" placeholder="e.g. Danvers"><datalist id="towns"><option value="Danvers"><option value="Peabody"><option value="Beverly"><option value="Salem"><option value="Middleton"><option value="Topsfield"><option value="Lynnfield"><option value="Wenham"><option value="Hamilton"><option value="Boxford"><option value="North Reading"><option value="Marblehead"><option value="Swampscott"><option value="Georgetown"></datalist></div>
+    <div class="fld"><label for="msg">Details</label><textarea id="msg" name="msg" rows="3" maxlength="2000" placeholder="Briefly describe the job"></textarea></div>
+    <div class="hp" aria-hidden="true"><label for="website">Leave this empty</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+    <input type="hidden" name="page" value="">
+    <button type="submit" class="btn btn-primary">Get My Free Estimate</button>
+    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    <small>100% free, no obligation. Or call us directly at <a href="tel:+18572494451">(857) 249-4451</a></small>
+  </form>
+</div></div></section>
+
 <footer class="site"><div class="wrap">
   <div class="cols">
     <div><img class="flogo" src="assets/img/logo-lockup.webp" alt="Julio Bobato Electrician logo" width="800" height="350">
@@ -184,7 +219,7 @@
       <li>&#9993; <a href="mailto:contact@juliobobato.com">contact@juliobobato.com</a></li>
       <li>&#128205; Danvers &amp; the North Shore, MA</li>
       <li>&#128337; Mon to Sat, 7 AM to 7 PM</li>
-      <li>&#10003; <a href="index.html#contact">Free estimates</a></li>
+      <li>&#10003; <a href="#contact">Free estimates</a></li>
     </ul></div>
   </div>
   <div class="bottom">
@@ -192,6 +227,6 @@
     <span>Serving Danvers, Peabody, Beverly, Salem &amp; the North Shore</span>
   </div>
 </div></footer>
-<div class="callbar"><a class="call" href="tel:+18572494451">&#9743; Call Now</a><a class="quote" href="index.html#contact">Free Estimate</a></div>
+<div class="callbar"><a class="call" href="tel:+18572494451">&#9743; Call Now</a><a class="quote" href="#contact">Free Estimate</a></div>
 <script src="assets/js/site.js?v=20261006f" defer></script>
 </body></html>

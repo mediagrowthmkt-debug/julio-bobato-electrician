@@ -34,8 +34,8 @@ SERVICES = [
  dict(slug="panel-upgrades", nav="Panel &amp; Service Upgrades", img="service-panel.jpg",
    name="Electrical Panel &amp; Service Upgrades",
    title="Electrical Panel Upgrade &amp; Replacement | Danvers, MA",
-   desc="Licensed electrical panel &amp; service upgrades in Danvers and the North Shore, MA. Upgrade 100-amp to 200-amp or 400-amp service for EVs, heat pumps &amp; modern homes. Free estimates, permits pulled.",
-   h1a="Electrical Panel &amp;", h1b="Service Upgrades",
+   desc="Electrical panel upgrade in Danvers &amp; the North Shore, MA. 100 to 200-amp service for EVs and heat pumps. Licensed, permits pulled. Free estimate.",
+   h1a="Electrical Panel Upgrade", h1b="in Danvers &amp; the North Shore",
    intro="Many North Shore homes still run on a 100-amp panel that was never meant for today's electric loads. We upgrade your service to 200 or 400 amps, safely and to code, so your home is ready for EV charging, heat pumps and everything else.",
    included=["100-amp to 200-amp and 400-amp service upgrades","Old fuse box &amp; knob-and-tube panel replacement",
      "Sub-panel installation for additions &amp; garages","Meter and mast repair or replacement",
@@ -49,7 +49,7 @@ SERVICES = [
  dict(slug="ev-charger-installation", nav="EV Charger Installation", img="service-ev-nopeople.jpg",
    name="EV Charger Installation",
    title="EV Charger Installation in Danvers, MA | Level 2 &amp; Tesla",
-   desc="Level 2 home EV charger installation in Danvers and the North Shore, MA. Clean, code-compliant installs, sized to your panel, with guidance on Massachusetts incentives. Free estimates.",
+   desc="EV charger installation in Danvers &amp; the North Shore, MA. Tesla, ChargePoint and Level 2 chargers, permits pulled. Licensed electrician. Free estimate.",
    h1a="EV Charger", h1b="Installation",
    intro="Charge at home overnight and skip the public stations. We install Level 2 home EV chargers cleanly and to code, size your panel for the load, and handle the permit, so your car is ready every morning.",
    included=["Level 2 (240V) home charger installation","Hardwired or plug-in (NEMA 14-50) setups",
@@ -64,8 +64,8 @@ SERVICES = [
  dict(slug="lighting-fixtures", nav="Lighting &amp; Fixtures", img="service-fixtures.jpg",
    name="Lighting &amp; Fixture Installation",
    title="Light Fixture Installation in Danvers, MA | Julio Bobato",
-   desc="Chandeliers, pendants, ceiling fixtures, under-cabinet lights, dimmers and switches installed in Danvers and the North Shore, MA by a licensed electrician. Free estimates.",
-   h1a="Lighting &amp; Fixture", h1b="Installation",
+   desc="Light fixture installation in Danvers &amp; the North Shore, MA. Chandeliers, pendants and fixture swaps done safely. Licensed electrician. Free estimate.",
+   h1a="Light Fixture Installation", h1b="in Danvers &amp; the North Shore",
    intro="The right fixture changes a whole room. We hang chandeliers and pendants, swap dated ceiling lights and add dimmers and smart switches, cleanly and safely, with a finish you'll be proud of.",
    included=["Chandeliers, pendants &amp; ceiling fixtures","Kitchen island &amp; dining room lighting",
      "Under-cabinet &amp; accent lighting","Dimmers, switches &amp; smart controls",
@@ -164,7 +164,7 @@ SERVICES = [
  dict(slug="electrical-repairs", nav="Repairs &amp; Troubleshooting", img="service-repairs.jpg",
    name="Electrical Repairs &amp; Troubleshooting",
    title="Electrical Repairs &amp; Emergency Electrician | Danvers, MA",
-   desc="Fast electrical repairs and troubleshooting in Danvers and the North Shore, MA. Dead outlets, tripping breakers, faulty wiring, fixed right by a licensed electrician. Emergency service available.",
+   desc="Electrical repair in Danvers &amp; the North Shore, MA. Outlets, breakers, flickering lights and troubleshooting. Licensed &amp; insured. Call (857) 249-4451.",
    h1a="Electrical Repairs &amp;", h1b="Troubleshooting",
    intro="Dead outlet? Breaker that keeps tripping? Flickering lights? We track down the real cause, fix it right the first time, and explain what was wrong in plain English.",
    included=["Dead &amp; faulty outlet repair","Tripping breaker diagnosis &amp; repair",
@@ -179,8 +179,8 @@ SERVICES = [
  dict(slug="commercial-electrical", nav="Commercial Electrical", img="service-commercial.jpg",
    name="Commercial Electrical Services",
    title="Commercial Electrician North Shore, MA | Shops &amp; Offices",
-   desc="Commercial electrical services in Danvers and the North Shore, MA. Wiring, lighting, service work and maintenance for shops, offices and small businesses. Free estimates.",
-   h1a="Commercial", h1b="Electrical Services",
+   desc="Commercial electrician in Danvers &amp; the North Shore, MA. Office and restaurant wiring, lighting and repairs. Licensed &amp; insured. Free estimate.",
+   h1a="Commercial Electrician", h1b="in Danvers &amp; the North Shore",
    intro="Your business can't afford downtime. We handle wiring, lighting, service upgrades and repairs for North Shore shops, offices and small businesses, with maintenance you can count on.",
    included=["Store, office &amp; restaurant wiring","Commercial lighting &amp; LED retrofits",
      "Service upgrades &amp; sub-panels","Dedicated circuits for equipment",
@@ -296,6 +296,15 @@ def work_gallery(keys, cols=""):
       for k in keys)
     return f'<div class="work-grid{(" " + cols) if cols else ""}">\n{figs}\n</div>'
 
+def _real_wh(f):
+    """Dimensao real do arquivo em assets/img (evita CLS nas miniaturas). SEO 16-10-26."""
+    try:
+        from PIL import Image as _I
+        with _I.open(os.path.join(BASE, "assets", "img", f)) as im: w, h = im.size
+        return f'width="{w}" height="{h}"'
+    except Exception:
+        return _wh(f)
+
 def _wh(f, d=(1200,900)):
     w, h = IMG_WH.get(f, d)
     return f'width="{w}" height="{h}"'
@@ -383,7 +392,7 @@ def _card(s, loc, feat):
     badge = '<span class="badge">Most Requested</span>' if feat else ""
     cls = "svc-card featured" if feat else "svc-card"
     return f"""<article class="{cls}">
-  <div class="thumb">{badge}<img src="assets/img/{s['img']}" alt="{s['name'].replace('&amp;','and')}{loc} North Shore MA" loading="lazy"></div>
+  <div class="thumb">{badge}<img src="assets/img/{s['img']}" alt="{s['name'].replace('&amp;','and')}{loc} North Shore MA" loading="lazy" {_real_wh(s['img'])}></div>
   <div class="body"><h3>{s['nav']}</h3><p>{_short(s['intro'])}</p>
   <a class="more" href="service-{s['slug']}.html">Learn more &rarr;</a></div>
 </article>"""
@@ -497,27 +506,64 @@ def service_ld(s, canon):
       % (stype, stype, SITE, cities, canon))
 
 # ---------------------------------------------------------------- pages
+def contact_section(sel_slug=None, town=None):
+    """Formulario de orcamento (home + todas as paginas internas). SEO/leads 16-10-26:
+    nas internas vem com o servico da pagina selecionado e a cidade preenchida."""
+    svc_opts = "\n".join(f'      <option {"selected " if x["slug"]==sel_slug else ""}value="{x["nav"]}" data-slug="{x["slug"]}">{x["nav"]}</option>' for x in SERVICES)
+    town_opts = "".join(f'<option value="{c["name"]}">' for c in CITIES)
+    town_val = f'value="{town}" ' if town else ""
+    return f"""<section id="contact"><div class="wrap"><div class="contact">
+  <div><p class="eyebrow">Get In Touch</p><h2>Request Your Free Estimate</h2>
+    <p class="lead" style="margin-bottom:28px">Every estimate is 100% free with no obligation. Call, text or fill out the form and we'll get right back to you with a clear plan.</p>
+    <div class="contact-info">
+      <div class="ci-item"><div class="ico">&#9743;</div><div><b>Phone</b><span><a href="tel:{PH_T}">{PH_D}</a></span></div></div>
+      <div class="ci-item"><div class="ico">&#9993;</div><div><b>Email</b><span><a href="mailto:{EMAIL}">{EMAIL}</a></span></div></div>
+      <div class="ci-item"><div class="ico">&#128205;</div><div><b>Service Area</b><span>Danvers &amp; the North Shore, Essex County, MA</span></div></div>
+      <div class="ci-item"><div class="ico">&#128337;</div><div><b>Hours</b><span>Mon to Sat, 7:00 AM to 7:00 PM · Emergency service available</span></div></div>
+    </div></div>
+  <form class="form" id="estimate-form" action="{FORM_ENDPOINT}" method="post" data-phone="{PH_D}" data-tel="{PH_T}" data-email="{EMAIL}">
+    <h3>Get Your <span class="hl">FREE</span> Estimate</h3>
+    <p style="color:var(--muted);margin-bottom:18px;font-size:.95rem">Free and no obligation. Tell us about the job and we'll get right back to you.</p>
+    <div class="fld"><label for="name">Full Name</label><input id="name" name="name" required maxlength="80" autocomplete="name" placeholder="Your name"></div>
+    <div class="fld"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required maxlength="25" autocomplete="tel" placeholder="Best number to reach you"></div>
+    <div class="fld"><label for="email">Email</label><input id="email" name="email" type="email" maxlength="120" autocomplete="email" placeholder="you@email.com"></div>
+    <div class="fld"><label for="service">Service Needed</label><select id="service" name="service">
+{svc_opts}
+      <option value="Other">Other</option>
+    </select></div>
+    <div class="fld"><label for="city">Town</label><input id="city" name="city" maxlength="60" list="towns" autocomplete="address-level2" {town_val}placeholder="e.g. Danvers"><datalist id="towns">{town_opts}</datalist></div>
+    <div class="fld"><label for="msg">Details</label><textarea id="msg" name="msg" rows="3" maxlength="2000" placeholder="Briefly describe the job"></textarea></div>
+    <div class="hp" aria-hidden="true"><label for="website">Leave this empty</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+    <input type="hidden" name="page" value="">
+    <button type="submit" class="btn btn-primary">Get My Free Estimate</button>
+    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    <small>100% free, no obligation. Or call us directly at <a href="tel:{PH_T}">{PH_D}</a></small>
+  </form>
+</div></div></section>
+"""
+
+def _inner_contact(html):
+    """Paginas internas: CTAs de orcamento apontam pro formulario da propria pagina."""
+    return html.replace('href="index.html#contact"', 'href="#contact"')
+
 def build_home():
     canon = f"{SITE}/"
-    title = "Licensed Electrician North Shore, MA | Julio Bobato"
-    desc = ("Julio Bobato Electrician is a licensed &amp; insured electrician serving Danvers and the North Shore, MA. "
-      "Panel upgrades, EV chargers, commercial work, recessed &amp; outdoor lighting and repairs. Permits pulled. "
-      f"Free estimates, call {PH_D}.")
+    title = "Electrician Danvers, MA &amp; the North Shore | Julio Bobato"
+    desc = ("Licensed electrician in Danvers &amp; the North Shore, MA. Panel upgrades, EV chargers, lighting and repairs. "
+      f"Permits pulled. Free estimate: {PH_D}.")
     faq = [("Are you a licensed and insured electrician?","Yes. Julio Bobato Electrician is fully licensed and insured in Massachusetts. We give you our license number up front, before you even ask."),
       ("Do you pull permits for electrical work?","Yes. We pull the required permits so the work is inspected and to code. That keeps your home safe and your homeowner's insurance valid."),
       ("What areas do you serve?","We serve Danvers, Peabody, Beverly, Salem, Middleton, Topsfield and the surrounding North Shore of Massachusetts."),
       ("Do you offer free estimates?","Yes. We provide free, written estimates. The price we quote is the price you pay, no surprises at the end."),
       ("Can I get a free estimate for a panel upgrade?","Yes. Every home is different, so we come out, look at your panel, meter and wiring, and give you a free written estimate before any work begins. No guesswork over the phone and no obligation.")]
     ld = [business_ld(canon), faq_ld(faq)]
-    svc_opts = "\n".join(f'      <option value="{x["nav"]}" data-slug="{x["slug"]}">{x["nav"]}</option>' for x in SERVICES)
-    town_opts = "".join(f'<option value="{c["name"]}">' for c in CITIES)
     html = head(title, desc, canon, ld)
-    html += topbar("Serving Danvers &amp; the North Shore, MA")
+    html += topbar("Electrician Danvers, MA &amp; the North Shore")
     html += header()
     html += f"""
 <section class="hero-bg"><div class="wrap"><div class="inner">
   <p class="eyebrow" style="color:var(--yellow)">Danvers &amp; North Shore Electrician</p>
-  <h1>Licensed Electrician on the <span>North Shore, MA</span></h1>
+  <h1>Licensed Electrician Danvers, MA <span>&amp; the North Shore</span></h1>
   <p class="sub">Powering North Shore homes you can trust. Licensed, insured electrical work done right the first time, from panel upgrades and EV chargers to commercial work and lighting. On time, permits always pulled, and every estimate is free.</p>
   <div class="cta-row">
     <a class="btn btn-primary" href="#contact">Get My Free Estimate</a>
@@ -562,34 +608,7 @@ def build_home():
   {faq_block(faq)}
 </div></section>
 {cta_band("Need a Licensed Electrician on the North Shore?","Get a free, no-pressure estimate today. On-time service, upfront pricing and work you can trust.")}
-<section id="contact"><div class="wrap"><div class="contact">
-  <div><p class="eyebrow">Get In Touch</p><h2>Request Your Free Estimate</h2>
-    <p class="lead" style="margin-bottom:28px">Every estimate is 100% free with no obligation. Call, text or fill out the form and we'll get right back to you with a clear plan.</p>
-    <div class="contact-info">
-      <div class="ci-item"><div class="ico">&#9743;</div><div><b>Phone</b><span><a href="tel:{PH_T}">{PH_D}</a></span></div></div>
-      <div class="ci-item"><div class="ico">&#9993;</div><div><b>Email</b><span><a href="mailto:{EMAIL}">{EMAIL}</a></span></div></div>
-      <div class="ci-item"><div class="ico">&#128205;</div><div><b>Service Area</b><span>Danvers &amp; the North Shore, Essex County, MA</span></div></div>
-      <div class="ci-item"><div class="ico">&#128337;</div><div><b>Hours</b><span>Mon to Sat, 7:00 AM to 7:00 PM · Emergency service available</span></div></div>
-    </div></div>
-  <form class="form" id="estimate-form" action="{FORM_ENDPOINT}" method="post" data-phone="{PH_D}" data-tel="{PH_T}" data-email="{EMAIL}">
-    <h3>Get Your <span class="hl">FREE</span> Estimate</h3>
-    <p style="color:var(--muted);margin-bottom:18px;font-size:.95rem">Free and no obligation. Tell us about the job and we'll get right back to you.</p>
-    <div class="fld"><label for="name">Full Name</label><input id="name" name="name" required maxlength="80" autocomplete="name" placeholder="Your name"></div>
-    <div class="fld"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required maxlength="25" autocomplete="tel" placeholder="Best number to reach you"></div>
-    <div class="fld"><label for="email">Email</label><input id="email" name="email" type="email" maxlength="120" autocomplete="email" placeholder="you@email.com"></div>
-    <div class="fld"><label for="service">Service Needed</label><select id="service" name="service">
-{svc_opts}
-      <option value="Other">Other</option>
-    </select></div>
-    <div class="fld"><label for="city">Town</label><input id="city" name="city" maxlength="60" list="towns" autocomplete="address-level2" placeholder="e.g. Danvers"><datalist id="towns">{town_opts}</datalist></div>
-    <div class="fld"><label for="msg">Details</label><textarea id="msg" name="msg" rows="3" maxlength="2000" placeholder="Briefly describe the job"></textarea></div>
-    <div class="hp" aria-hidden="true"><label for="website">Leave this empty</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
-    <input type="hidden" name="page" value="">
-    <button type="submit" class="btn btn-primary">Get My Free Estimate</button>
-    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-    <small>100% free, no obligation. Or call us directly at <a href="tel:{PH_T}">{PH_D}</a></small>
-  </form>
-</div></div></section>
+{contact_section()}
 """
     html += footer()
     open(os.path.join(BASE,"index.html"),"w").write(html)
@@ -656,8 +675,10 @@ def build_service(s):
   {related_services(s['slug'])}
 </div></section>
 {cta_band(f"Need {s['name']} on the North Shore?","Get a free, no-pressure estimate today. Licensed, insured and always on time.")}
+{contact_section(sel_slug=s['slug'])}
 """
     html += footer()
+    html = _inner_contact(html)
     open(os.path.join(BASE,fname),"w").write(html)
     return fname
 
@@ -665,9 +686,10 @@ def build_city(c):
     fname = f"electrician-{c['slug']}-ma.html"
     canon = f"{SITE}/{fname}"
     city = c["name"]
-    title = f"Electrician in {city}, MA | Julio Bobato Electrician"
-    desc = (f"Licensed &amp; insured electrician in {city}, MA. Panel upgrades, EV chargers, lighting, "
-      f"repairs &amp; commercial work. Permits pulled. 100% free estimates, call {PH_D}.")
+    title = f"Electrician {city}, MA | Licensed &amp; Insured | Julio Bobato"
+    if len(title.replace("&amp;", "&")) > 60: title = f"Electrician {city}, MA | Julio Bobato Electrician"
+    desc = (f"Licensed &amp; insured electrician in {city}, MA. Panel upgrades, EV chargers, lighting &amp; repairs. "
+      f"Permits pulled. Free estimate: {PH_D}.")
     faq = [(f"Are you a licensed electrician in {city}, MA?",
         f"Yes. Julio Bobato Electrician is fully licensed and insured in Massachusetts and serves {city} and the surrounding North Shore. We provide our license number up front."),
       (f"Do you pull electrical permits in {city}?",
@@ -680,14 +702,14 @@ def build_city(c):
       f'<a href="electrician-{CITY_BY_SLUG[n]}-ma.html">Electrician in <b>{n}</b></a>'
       for n in c["nearby"] if n in CITY_BY_SLUG)
     html = head(title, desc, canon, ld)
-    html += topbar(f"Electrician in {city}, MA")
+    html += topbar(f"Electrician {city}, MA")
     html += header()
     html += f"""
 <div class="crumb"><div class="wrap"><a href="index.html">Home</a> &nbsp;&rsaquo;&nbsp; Electrician in {city}, MA</div></div>
 <section class="hero"><div class="wrap">
   <div class="hero-text">
     <p class="eyebrow" style="color:var(--yellow)">Serving {city}, Massachusetts</p>
-    <h1>Licensed Electrician in <span>{city}, MA</span></h1>
+    <h1>Licensed Electrician <span>{city}, MA</span></h1>
     <p class="sub">{c['intro']} On time, permits always pulled and every estimate is free, residential and commercial.</p>
     <div class="cta-row"><a class="btn btn-primary" href="index.html#contact">Get My Free Estimate</a>
       <a class="btn btn-ghost" href="tel:{PH_T}">&#9743; Call {PH_D}</a></div>
@@ -727,8 +749,10 @@ def build_city(c):
   </div>
 </div></section>
 {cta_band(f"Need an Electrician in {city}?","Get a free, no-pressure estimate today. On-time service, upfront pricing and work you can trust.")}
+{contact_section(town=city)}
 """
     html += footer()
+    html = _inner_contact(html)
     open(os.path.join(BASE,fname),"w").write(html)
     return fname
 
@@ -774,7 +798,11 @@ for f in os.listdir(IMG_DIR):
     if not _re.search(r"\.(jpe?g|png)$", f, _re.I) or f == "favicon.png": continue
     src = os.path.join(IMG_DIR,f); dst = _re.sub(r"\.(jpe?g|png)$", ".webp", src, flags=_re.I)
     if not os.path.exists(dst) or os.path.getmtime(dst) < os.path.getmtime(src):
-        _sp.run(["cwebp","-quiet","-q","80","-m","6","-mt",src,"-o",dst], check=True)
+        if shutil.which("cwebp"):
+            _sp.run(["cwebp","-quiet","-q","80","-m","6","-mt",src,"-o",dst], check=True)
+        else:   # host sem cwebp (Linux/escritorio): mesmo q80 pelo Pillow
+            from PIL import Image as _Img
+            _Img.open(src).save(dst, "WEBP", quality=80, method=6)
 def _to_webp(m):
     w = _re.sub(r"\.(jpe?g|png)$", ".webp", m.group(2), flags=_re.I)
     return m.group(1) + (w if os.path.exists(os.path.join(BASE,w)) else m.group(2)) + m.group(3)
