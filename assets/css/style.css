@@ -252,11 +252,14 @@ footer.site .bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;
 
 /* mobile call bar */
 .callbar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;
-  grid-template-columns:1fr 1fr;box-shadow:0 -6px 24px -12px rgba(0,0,0,.4)}
+  grid-template-columns:1fr 1fr 1fr;box-shadow:0 -6px 24px -12px rgba(0,0,0,.4)}
 .callbar a{padding:15px;text-align:center;font-family:'Oswald',sans-serif;text-transform:uppercase;
   letter-spacing:.6px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px}
 .callbar .call{background:var(--yellow);color:var(--navy)}
 .callbar .quote{background:var(--navy);color:#fff}
+.callbar .sms{background:#fff;color:var(--navy)}
+.seo-local-link{margin:0 0 24px;font-size:.95em}
+.seo-local-link a{color:var(--yellow);text-decoration:underline}
 
 /* ---------- responsive ---------- */
 @media(max-width:1180px){

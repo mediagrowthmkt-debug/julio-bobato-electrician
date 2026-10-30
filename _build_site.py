@@ -26,16 +26,16 @@ GSC_VERIFICATION = ""
 # (ex.: "https://mediagrowth.com.br/julio-contact/contact.php") e liberar a origem em ALLOWED_ORIGINS no PHP.
 FORM_ENDPOINT = "https://mediagrowth.com.br/julio-contact/contact.php"
 
-ASSET_V = "20261006f"   # trocar a cada mudanca de CSS/JS (cache-busting)
+ASSET_V = "20261030a"   # trocar a cada mudanca de CSS/JS (cache-busting)
 FEATURED = ["panel-upgrades", "ev-charger-installation", "commercial-electrical"]
 
 # ---------------------------------------------------------------- data: SERVICES
 SERVICES = [
  dict(slug="panel-upgrades", nav="Panel &amp; Service Upgrades", img="service-panel.jpg",
    name="Electrical Panel &amp; Service Upgrades",
-   title="Electrical Panel Upgrade &amp; Replacement | Danvers, MA",
+   title="Panel Upgrade &amp; Electric Panel Replacement Danvers, MA",
    desc="Electrical panel upgrade in Danvers &amp; the North Shore, MA. 100 to 200-amp service for EVs and heat pumps. Licensed, permits pulled. Free estimate.",
-   h1a="Electrical Panel Upgrade", h1b="in Danvers &amp; the North Shore",
+   h1a="Panel Upgrade &amp; Electric Panel Replacement Danvers, MA", h1b="&amp; the North Shore",
    intro="Many North Shore homes still run on a 100-amp panel that was never meant for today's electric loads. We upgrade your service to 200 or 400 amps, safely and to code, so your home is ready for EV charging, heat pumps and everything else.",
    included=["100-amp to 200-amp and 400-amp service upgrades","Old fuse box &amp; knob-and-tube panel replacement",
      "Sub-panel installation for additions &amp; garages","Meter and mast repair or replacement",
@@ -43,14 +43,15 @@ SERVICES = [
    why="Why upgrade your panel?",
    why_p="Older Essex County homes (many built before 1980) often top out at 100 amps. Add an EV charger or a heat pump and you can trip breakers, or worse. A modern 200/400-amp panel gives you headroom, safety and a home that's easier to sell.",
    faq=[("Can I get a free estimate for a panel upgrade?","Yes. Every home is different, so we never guess over the phone. We come out, look at your panel, meter and wiring, and hand you a free written estimate before any work starts."),
+        ("Are you licensed and insured in Massachusetts?","Yes. Julio Bobato is a licensed electrician in Massachusetts, and the business is insured with The Hartford. We can send a copy of the license and the certificate of insurance with your estimate."),
         ("Do I need a permit for a panel upgrade?","Yes, and we pull it for you. The upgrade is inspected and signed off so your work is to code and your insurance stays valid."),
         ("How long does a panel upgrade take?","Most residential upgrades are a one-day job. Power is off for part of the day and we coordinate the utility disconnect and reconnect."),
         ("Will a panel upgrade support an EV charger and heat pump?","That's exactly what a 200/400-amp service is for. We size the panel to your current and future loads so you're covered.")]),
  dict(slug="ev-charger-installation", nav="EV Charger Installation", img="service-ev-nopeople.jpg",
    name="EV Charger Installation",
-   title="EV Charger Installation in Danvers, MA | Level 2 &amp; Tesla",
+   title="EV Charger Installation Danvers, MA | Level 2 &amp; Tesla",
    desc="EV charger installation in Danvers &amp; the North Shore, MA. Tesla, ChargePoint and Level 2 chargers, permits pulled. Licensed electrician. Free estimate.",
-   h1a="EV Charger", h1b="Installation",
+   h1a="EV Charger Installation Danvers, MA", h1b="&amp; the North Shore",
    intro="Charge at home overnight and skip the public stations. We install Level 2 home EV chargers cleanly and to code, size your panel for the load, and handle the permit, so your car is ready every morning.",
    included=["Level 2 (240V) home charger installation","Hardwired or plug-in (NEMA 14-50) setups",
      "Dedicated circuit and breaker sizing","Panel upgrade when your service needs it",
@@ -58,14 +59,15 @@ SERVICES = [
    why="Why go with a licensed electrician?",
    why_p="A home charger pulls serious current for hours at a time. Done wrong, it's a fire risk and can void your warranty. We install it on a properly sized, permitted circuit so it's safe, fast and covered.",
    faq=[("Can I get a free estimate for an EV charger install?","Yes. We check your panel and the distance to where the charger will go, then give you a free written estimate. If you also need a panel upgrade, both are in the same estimate."),
+        ("Are you licensed and insured in Massachusetts?","Yes. Julio Bobato is a licensed electrician in Massachusetts, and the business is insured with The Hartford. We can send a copy of the license and the certificate of insurance with your estimate."),
         ("Can you install any brand of charger?","Yes, Tesla, ChargePoint, Wallbox and others. If you haven't bought one yet, we'll point you to a good fit for your car and panel."),
         ("Are there Massachusetts incentives for home EV chargers?","Often, yes. Programs through Mass Save and your electric company change over time, so we'll point you to what's currently available and make sure the install meets the standard they require."),
         ("Do I need a panel upgrade for an EV charger?","Sometimes. If your panel is full or only 100 amps, we may recommend an upgrade so the charger runs safely. We check before quoting.")]),
  dict(slug="lighting-fixtures", nav="Lighting &amp; Fixtures", img="service-fixtures.jpg",
    name="Lighting &amp; Fixture Installation",
-   title="Light Fixture Installation in Danvers, MA | Julio Bobato",
+   title="Light Fixture Installation Danvers, MA | Julio Bobato",
    desc="Light fixture installation in Danvers &amp; the North Shore, MA. Chandeliers, pendants and fixture swaps done safely. Licensed electrician. Free estimate.",
-   h1a="Light Fixture Installation", h1b="in Danvers &amp; the North Shore",
+   h1a="Light Fixture Installation Danvers, MA", h1b="&amp; the North Shore",
    intro="The right fixture changes a whole room. We hang chandeliers and pendants, swap dated ceiling lights and add dimmers and smart switches, cleanly and safely, with a finish you'll be proud of.",
    included=["Chandeliers, pendants &amp; ceiling fixtures","Kitchen island &amp; dining room lighting",
      "Under-cabinet &amp; accent lighting","Dimmers, switches &amp; smart controls",
@@ -73,6 +75,7 @@ SERVICES = [
    why="Why it matters",
    why_p="Beyond looks, dated fixtures and overloaded switches can be a hazard. We make sure every new light is on the right circuit, mounted on a box rated for its weight and wired to code, so it looks great and stays safe. Looking for <a href=\"service-recessed-lighting.html\">recessed lighting installation</a> instead? It has its own page.",
    faq=[("Can you hang a heavy chandelier or a fixture on a high ceiling?","Yes. We check that the ceiling box is rated for the weight, add proper support where needed and bring the right equipment for tall foyers and stairwells."),
+        ("Are you licensed and insured in Massachusetts?","Yes. Julio Bobato is a licensed electrician in Massachusetts, and the business is insured with The Hartford. We can send a copy of the license and the certificate of insurance with your estimate."),
         ("Do you install smart lighting and dimmers?","Absolutely, smart switches, dimmers and app-controlled lighting are some of our most popular upgrades."),
         ("Can you install a fixture I bought myself?","Yes. Send us a link or a photo and we'll confirm it fits your ceiling box and circuit before we install it."),
         ("Do you also do recessed and outdoor lighting?","Yes. Recessed lighting and outdoor and landscape lighting each have their own page on this site, and we're happy to plan everything in one free estimate.")]),
@@ -163,9 +166,10 @@ SERVICES = [
         ("What is the difference between low voltage and line voltage outdoor lighting?","Low voltage systems use a transformer and are ideal for path, garden and accent lights. Line voltage runs at standard household voltage and is used for floodlights, post lights and outlets. Most homes use a mix of both.")]),
  dict(slug="electrical-repairs", nav="Repairs &amp; Troubleshooting", img="service-repairs.jpg",
    name="Electrical Repairs &amp; Troubleshooting",
-   title="Electrical Repairs &amp; Emergency Electrician | Danvers, MA",
+   title="Electrical Repair Danvers, MA | Outlets, Breakers, Wiring",
    desc="Electrical repair in Danvers &amp; the North Shore, MA. Outlets, breakers, flickering lights and troubleshooting. Licensed &amp; insured. Call (857) 249-4451.",
-   h1a="Electrical Repairs &amp;", h1b="Troubleshooting",
+   h1a="Electrical Repair Danvers, MA", h1b="&amp; Troubleshooting",
+   hero_extra='<p class="seo-local-link">Need a licensed electrician for something else? See our <a href="electrician-danvers-ma.html">electrician in Danvers, MA</a> page for everything we do in town.</p>\n',
    intro="Dead outlet? Breaker that keeps tripping? Flickering lights? We track down the real cause, fix it right the first time, and explain what was wrong in plain English.",
    included=["Dead &amp; faulty outlet repair","Tripping breaker diagnosis &amp; repair",
      "Flickering &amp; dimming light fixes","Aluminum &amp; knob-and-tube wiring issues",
@@ -173,14 +177,15 @@ SERVICES = [
    why="Why it matters",
    why_p="Electrical problems are the kind you don't want to guess at. Warm outlets, buzzing panels and repeated trips can point to a real hazard. We diagnose the root cause instead of just resetting the breaker.",
    faq=[("Do you offer emergency electrical service?","Yes. When it's an emergency, especially after a storm, we come right out. Call us and we'll tell you exactly when we can be there."),
+        ("Are you licensed and insured in Massachusetts?","Yes. Julio Bobato is a licensed electrician in Massachusetts, and the business is insured with The Hartford. We can send a copy of the license and the certificate of insurance with your estimate."),
         ("Why does my breaker keep tripping?","Usually an overloaded circuit, a short or a failing breaker. We find which one it is and fix the cause, not just the symptom."),
         ("Is a warm or discolored outlet dangerous?","It can be, that's a sign of a loose connection or overload and a real fire risk. Stop using it and call us to inspect it."),
         ("Can you inspect my home's wiring before I buy?","Yes. We do electrical safety inspections and give you a clear written summary of what's safe and what needs work.")]),
  dict(slug="commercial-electrical", nav="Commercial Electrical", img="service-commercial.jpg",
    name="Commercial Electrical Services",
-   title="Commercial Electrician North Shore, MA | Shops &amp; Offices",
+   title="Commercial Electrician Danvers, MA | Shops &amp; Offices",
    desc="Commercial electrician in Danvers &amp; the North Shore, MA. Office and restaurant wiring, lighting and repairs. Licensed &amp; insured. Free estimate.",
-   h1a="Commercial Electrician", h1b="in Danvers &amp; the North Shore",
+   h1a="Commercial Electrician Danvers, MA", h1b="&amp; the North Shore",
    intro="Your business can't afford downtime. We handle wiring, lighting, service upgrades and repairs for North Shore shops, offices and small businesses, with maintenance you can count on.",
    included=["Store, office &amp; restaurant wiring","Commercial lighting &amp; LED retrofits",
      "Service upgrades &amp; sub-panels","Dedicated circuits for equipment",
@@ -190,7 +195,7 @@ SERVICES = [
    faq=[("Do you work around business hours?","Yes. We schedule around your customers and staff, including early, late or weekend work when a job can't happen during the day."),
         ("Can you handle a commercial LED lighting retrofit?","Yes, swapping old fixtures for efficient LED is one of the fastest ways to cut a business's electric bill. We quote the savings up front."),
         ("Do you offer maintenance agreements?","We do. A simple maintenance plan keeps your electrical system reliable and catches small problems before they close your doors."),
-        ("Are you licensed and insured for commercial work?","Yes, fully licensed and insured in Massachusetts, with the documentation your landlord or inspector may ask for.")]),
+        ("Are you licensed and insured for commercial work?","Yes. Julio Bobato is a licensed electrician in Massachusetts, and the business is insured with The Hartford. We send the license and the certificate of insurance your landlord, property manager or inspector may ask for.")]),
 ]
 
 # ---------------------------------------------------------------- data: CITIES
@@ -474,7 +479,7 @@ def footer():
     <span>Serving Danvers, Peabody, Beverly, Salem &amp; the North Shore</span>
   </div>
 </div></footer>
-<div class="callbar"><a class="call" href="tel:{PH_T}">&#9743; Call Now</a><a class="quote" href="index.html#contact">Free Estimate</a></div>
+<div class="callbar"><a class="call" href="tel:{PH_T}">&#9743; Call Now</a><a class="sms" href="sms:{PH_T}">Text Us</a><a class="quote" href="index.html#contact">Free Estimate</a></div>
 <script src="assets/js/site.js?v={ASSET_V}" defer></script>
 </body></html>"""
 
@@ -639,7 +644,7 @@ def build_service(s):
     <p class="eyebrow" style="color:var(--yellow)">North Shore, MA</p>
     <h1>{s['h1a']} <span>{s['h1b']}</span></h1>
     <p class="sub">{s['intro']}</p>
-    <div class="cta-row"><a class="btn btn-primary" href="{est}">Get My Free Estimate</a>
+{s.get('hero_extra', '')}    <div class="cta-row"><a class="btn btn-primary" href="{est}">Get My Free Estimate</a>
       <a class="btn btn-ghost" href="tel:{PH_T}">&#9743; Call {PH_D}</a></div>
     <div class="hero-badges"><span>&#10003; Licensed &amp; Insured</span><span>&#10003; Permits Pulled</span><span>&#10003; 100% Free Estimates</span></div>
   </div>
